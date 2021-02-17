@@ -1,0 +1,18 @@
+<h3>All Tasks</h3>
+
+<%= link_to 'New Task', new_task_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tasks %>
+  </tbody>
+</table>
