@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @task %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit Task', edit_task_path(@task)  %>
+<%= link_to 'Destroy Task', task_path(@task), method: :delete, data: { confirm: 'really?' } %>
+<%= link_to 'All Task', tasks_path  %>
