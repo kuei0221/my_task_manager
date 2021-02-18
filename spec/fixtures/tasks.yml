@@ -1,0 +1,26 @@
+pending_task:
+  id: 1
+  name: test1
+  description: pending task
+  start: 2020-02-17 21:55:58
+  end: 2022-02-17 21:55:58
+  status: pending
+  priority: low
+
+progressing_task:
+  id: 2
+  name: test2
+  description: progressing task
+  start: 2020-02-17 21:55:58
+  end: 2022-02-17 21:55:58
+  status: in progress
+  priority: low
+
+completed_task:
+  id: 3
+  name: test3
+  description: completed task
+  start: 2020-02-17 21:55:58
+  end: 2022-02-17 21:55:58
+  status: completed
+  priority: low
