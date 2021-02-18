@@ -1,0 +1,32 @@
+zh-TW:
+  tasks:
+    new:
+      title: 建立新的任務
+      back: 返回任務列表
+    index:
+      title: 我的任務列表
+      new_task: 建立新任務
+    edit:
+      title: 修改任務
+      bacl: 返回任務
+    show:
+      edit: 修改任務
+      delete: 刪除任務
+      delete_confirm: 確定要刪除任務？
+      back: 返回列表
+    table:
+      name: 名稱
+      description: 內容
+      status: 狀態
+      priority: 優先度
+      start: 開始於
+      end: 結束於
+    form:
+      priority:
+        low: 低
+        medium: 中
+        high: 高
+      status:
+        pending: 待處理
+        in_progress: 進行中
+        completed: 完成

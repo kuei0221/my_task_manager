@@ -1,0 +1,10 @@
+zh-TW:
+  tasks:
+    create:
+      success: 任務建立成功
+      fail: 任務建立失敗
+    update:
+      success: 任務更新成功
+      fail: 任務更新失敗
+    destroy: 
+      success: 任務刪除成功
