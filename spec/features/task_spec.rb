@@ -34,8 +34,8 @@ RSpec.describe 'Task Managemenet', type: :feature do
         visit new_task_path
         fill_in 'Name', with: 'testing create'
         fill_in 'Description', with: 'This is testing the creation of a new test'
-        select('high', from: 'Priority')
-        select('in progress', from: 'Status')
+        select('High', from: 'Priority')
+        select('In Progress', from: 'Status')
         select('2020', from: 'task_start_1i')
         select('Jun', from: 'task_start_2i')
         select('20', from: 'task_start_3i')
@@ -59,7 +59,7 @@ RSpec.describe 'Task Managemenet', type: :feature do
     let(:task) { tasks(:pending_task) }
     it do
       visit edit_task_path(task)
-      select('in progress', from: 'Status')
+      select('In Progress', from: 'Status')
       click_on 'Update Task'
       expect(page).to have_content('Task Update Success')
       expect(page).to have_content('in progress')
@@ -70,8 +70,8 @@ RSpec.describe 'Task Managemenet', type: :feature do
     let(:task) { tasks(:pending_task) }
     it do
       visit task_path(task)
-      page.accept_alert 'really?' do
-        click_on('Destroy Task')
+      page.accept_alert 'Do you really want to delete this task ?' do
+        click_on('Delete')
       end
       expect(page).not_to have_content(task.name)
     end
