@@ -21,6 +21,7 @@ zh-TW:
       priority: 優先度
       start: 開始於
       end: 結束於
+      created_at: 創建時間
     form:
       priority:
         low: 低
