@@ -1,15 +1,15 @@
-<h3>All Tasks</h3>
+<h3><%= t '.title' %></h3>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to t('.new_task'), new_task_path %>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Priority</th>
-      <th>Start</th>
-      <th>End</th>
+      <th><%= t 'tasks.table.name' %></th>
+      <th><%= t 'tasks.table.description' %></th>
+      <th><%= t 'tasks.table.status' %></th>
+      <th><%= t 'tasks.table.priority' %></th>
+      <th><%= t 'tasks.table.start' %></th>
+      <th><%= t 'tasks.table.end' %></th>
     </tr>
   </thead>
   <tbody>

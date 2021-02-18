@@ -1,0 +1,32 @@
+en:
+  tasks:
+    new:
+      title: Create New Task
+      back: Back to Task List
+    index:
+      title: My Task List
+      new_task: New Task
+    edit:
+      title: Edit Task
+      bacl: Back to Task
+    show:
+      edit: Edit
+      delete: Delete
+      delete_confirm: 'Do you really want to delete this task ?'
+      back: Back to list
+    table:
+      name: Name
+      description: Description
+      status: Status
+      priority: Priority
+      start: Start_At
+      end: End At
+    form:
+      priority:
+        low: Low
+        medium: Medium
+        high: High
+      status:
+        pending: Pending
+        in_progress: In Progress
+        completed: Completed

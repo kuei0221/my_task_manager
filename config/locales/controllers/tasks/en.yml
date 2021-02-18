@@ -1,0 +1,10 @@
+en:
+  tasks:
+    create:
+      success: 'Task Create Success'
+      fail: 'Task Create Fail'
+    update:
+      success: 'Task Update Success'
+      fail: 'Task Create Fail'
+    destroy: 
+      success: 'Task Delete Success'
