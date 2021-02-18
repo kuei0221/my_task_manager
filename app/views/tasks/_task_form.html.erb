@@ -1,15 +1,15 @@
 <%= form_for(task) do |f| %>
-  <%= f.label :name  %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
 
   <%= f.label :description  %>
   <%= f.text_field :description %>
 
   <%= f.label :priority  %>
-  <%= f.select :priority, options_for_select(['low', 'medium','high']) %>
+  <%= f.select :priority, options_for_select([[t('tasks.form.priority.low'),'low'], [t('tasks.form.priority.medium'),'medium'],[t('tasks.form.priority.high'),'high']]) %>
 
   <%= f.label :status  %>
-  <%= f.select :status, options_for_select(['pending', 'in progress', 'completed']) %>
+  <%= f.select :status, options_for_select([[t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in progress'], [t('tasks.form.status.completed'),'completed']]) %>
 
   <%= f.label :start  %>
   <%= f.date_select :start %>

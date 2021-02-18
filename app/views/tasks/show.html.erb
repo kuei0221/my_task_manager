@@ -1,12 +1,12 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Priority</th>
-      <th>Start</th>
-      <th>End</th>
+      <th><%= t 'tasks.table.name' %></th>
+      <th><%= t 'tasks.table.description' %></th>
+      <th><%= t 'tasks.table.status' %></th>
+      <th><%= t 'tasks.table.priority' %></th>
+      <th><%= t 'tasks.table.start' %></th>
+      <th><%= t 'tasks.table.end' %></th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +14,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit Task', edit_task_path(@task)  %>
-<%= link_to 'Destroy Task', task_path(@task), method: :delete, data: { confirm: 'really?' } %>
-<%= link_to 'All Task', tasks_path  %>
+<%= link_to t('.edit'), edit_task_path(@task)  %>
+<%= link_to t('.delete'), task_path(@task), method: :delete, data: { confirm: t('.delete_confirm') } %>
+<%= link_to t('.back'), tasks_path  %>

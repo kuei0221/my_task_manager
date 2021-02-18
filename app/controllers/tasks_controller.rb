@@ -12,9 +12,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to task_path(@task), notice: 'Task Create Success'
+      redirect_to task_path(@task), notice: t('.success')
     else
-      flash.now[:alert] = 'Task Create Fail'
+      flash.now[:alert] = t('.fail')
       render :new
     end
   end
@@ -25,16 +25,16 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task), notice: 'Task Update Success'
+      redirect_to task_path(@task), notice: t('.success')
     else
-      flash.now[:alert] = 'Task Create Fail'
+      flash.now[:alert] = t('.fail')
       render :edit
     end
   end
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: 'Task Delete Success'
+    redirect_to tasks_path, notice: t('.success')
   end
 
   private
