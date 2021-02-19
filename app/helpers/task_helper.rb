@@ -1,7 +1,7 @@
 module TaskHelper
 
-  def current_created_sort
-    if params[:created_sort] && params[:created_sort] == 'asc'
+  def switch_current_direction(column)
+    if params[:column] == column && params[:direction] == 'asc'
       'desc'
     else
       'asc'
