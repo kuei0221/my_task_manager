@@ -15,4 +15,4 @@
 以後只要推到master branch就會自動部署上heroku
 
 ### Database Draft (step 4)
-![database draft](datebase_draft.jpg)
+![img](./database_draft.jpg?raw=true)
