@@ -13,3 +13,6 @@
 5. 最後先手動部署一次檢查網頁狀態
 
 以後只要推到master branch就會自動部署上heroku
+
+### Database Draft (step 4)
+![database draft](datebase_draft.jpg)
