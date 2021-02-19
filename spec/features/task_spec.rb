@@ -20,21 +20,33 @@ RSpec.describe 'Task Managemenet', type: :feature do
   end
 
   describe 'visit task list' do
+    before { visit tasks_path }
+
     it 'show all task' do
-      visit tasks_path
       expect(page).to have_content(tasks(:pending_task).name)
       expect(page).to have_content(tasks(:progressing_task).name)
       expect(page).to have_content(tasks(:completed_task).name)
     end
 
+    it 'sort tasks by created_at in desc' do
+      expect(page).to have_text(/test3.+test2.+test1/)
+    end
+
     context 'when click Created At' do
-      it 'sort by create at' do
-        visit tasks_path
+      it 'sorts all task by created_at' do
+        click_link 'Created At'
         expect(page).to have_text(/test1.+test2.+test3/)
         click_link 'Created At'
         expect(page).to have_text(/test3.+test2.+test1/)
-        click_link 'Created At'
+      end
+    end
+
+    context 'when click End At' do
+      it 'sorts all task by end_date' do
+        click_link 'End At'
         expect(page).to have_text(/test1.+test2.+test3/)
+        click_link 'End At'
+        expect(page).to have_text(/test3.+test2.+test1/)
       end
     end
   end
