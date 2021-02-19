@@ -4,7 +4,7 @@ env:
   - "RAILS_ENV=test"
 
 rvm:
-  - 2.7.0
+  - 2.7.2
 
 before_install:
   - gem install bundler
