@@ -64,16 +64,42 @@ RSpec.describe 'Task Managemenet', type: :feature do
         expect(page).to have_content('2021-07-30')
       end
     end
+
+    context 'when create fail' do
+      it 'shows alert and errors' do
+        visit new_task_path
+        select('2022', from: 'task_start_date_1i')
+        select('2020', from: 'task_end_date_1i')
+        click_on 'Create Task'
+        expect(page).to have_content('Task Create Fail')
+        expect(page).to have_content("Name can't be blank")
+        expect(page).to have_content('Start date should not larger than end date')
+      end
+    end
   end
 
   describe 'edit task' do
     let(:task) { tasks(:pending_task) }
-    it do
+
+    it 'update task' do
       visit edit_task_path(task)
-      select('In Progress', from: 'Status')
+      select('Pending', from: 'Status')
       click_on 'Update Task'
       expect(page).to have_content('Task Update Success')
-      expect(page).to have_content('in progress')
+      expect(page).to have_content('pending')
+    end
+
+    context 'when update fail' do
+      it 'shows alert and errors' do
+        visit edit_task_path(task)
+        fill_in 'Name', with: ''
+        select('2022', from: 'task_start_date_1i')
+        select('2020', from: 'task_end_date_1i')
+        click_on 'Update Task'
+        expect(page).to have_content('Task Update Fail')
+        expect(page).to have_content("Name can't be blank")
+        expect(page).to have_content('Start date should not larger than end date')
+      end
     end
   end
 
@@ -85,6 +111,7 @@ RSpec.describe 'Task Managemenet', type: :feature do
         click_on('Delete')
       end
       expect(page).not_to have_content(task.name)
+      expect(page).to have_content('Task Delete Success')
     end
   end
 end
