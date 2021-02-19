@@ -2,8 +2,10 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
 
   def index
-    params[:created_sort] ||= 'asc'
-    @tasks = Task.order(created_at: params[:created_sort])
+    params[:column] ||= :created_at
+    params[:direction] ||= 'desc'
+
+    @tasks = Task.order(params[:column] => params[:direction])
     @tasks.all
   end
 
