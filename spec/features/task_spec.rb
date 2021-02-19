@@ -13,8 +13,8 @@ RSpec.describe 'Task Managemenet', type: :feature do
         expect(page).to have_content(task.description)
         expect(page).to have_content(task.priority)
         expect(page).to have_content(task.status)
-        expect(page).to have_content(task.start)
-        expect(page).to have_content(task.end)
+        expect(page).to have_content(task.start_date)
+        expect(page).to have_content(task.end_date)
       end
     end
   end
@@ -47,12 +47,12 @@ RSpec.describe 'Task Managemenet', type: :feature do
         fill_in 'Description', with: 'This is testing the creation of a new test'
         select('High', from: 'Priority')
         select('In Progress', from: 'Status')
-        select('2020', from: 'task_start_1i')
-        select('Jun', from: 'task_start_2i')
-        select('20', from: 'task_start_3i')
-        select('2021', from: 'task_end_1i')
-        select('July', from: 'task_end_2i')
-        select('30', from: 'task_end_3i')
+        select('2020', from: 'task_start_date_1i')
+        select('Jun', from: 'task_start_date_2i')
+        select('20', from: 'task_start_date_3i')
+        select('2021', from: 'task_end_date_1i')
+        select('July', from: 'task_end_date_2i')
+        select('30', from: 'task_end_date_3i')
         click_on 'Create Task'
 
         expect(page).to have_content('Task Create Success')

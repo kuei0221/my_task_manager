@@ -19,8 +19,8 @@ en:
       description: Description
       status: Status
       priority: Priority
-      start: Start_At
-      end: End At
+      start_date: Start_At
+      end_date: End At
       created_at: Created At
     form:
       priority:
