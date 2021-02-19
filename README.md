@@ -11,6 +11,7 @@
 3. 在新app的頁面裡選擇deploy分頁，選擇使用github作為部署的方法並連結到對應的repo
 4. 在自動部署的區塊，啟用自動部署，和等ci通過才部署
 5. 最後先手動部署一次檢查網頁狀態
+6. 跑 rails db:migrate (往後若有更動也要跑）
 
 以後只要推到master branch就會自動部署上heroku
 
