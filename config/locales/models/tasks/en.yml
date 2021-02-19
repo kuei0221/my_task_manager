@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        task:
+          attributes:
+            start_date:
+              bad_start_and_end_date: should not larger than end date

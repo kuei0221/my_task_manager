@@ -8,5 +8,11 @@ zh-TW:
         description: 內容
         priority: 優先度
         status: 進行狀態
-        start: 開始時間
-        end: 結束時間
+        start_date: 開始時間
+        end_date: 結束時間
+    errors:
+      models:
+        task:
+          attributes:
+            start_date:
+              bad_start_and_end_date: 不應大於結束時間

@@ -1,3 +1,9 @@
+<% if task.errors.any? %>
+  <% task.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
+
 <%= form_for(task) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -9,13 +15,13 @@
   <%= f.select :priority, options_for_select([[t('tasks.form.priority.low'),'low'], [t('tasks.form.priority.medium'),'medium'],[t('tasks.form.priority.high'),'high']]) %>
 
   <%= f.label :status  %>
-  <%= f.select :status, options_for_select([[t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in progress'], [t('tasks.form.status.completed'),'completed']]) %>
+  <%= f.select :status, options_for_select([[t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]) %>
 
-  <%= f.label :start  %>
-  <%= f.date_select :start %>
+  <%= f.label :start_date  %>
+  <%= f.date_select :start_date %>
 
-  <%= f.label :end  %>
-  <%= f.date_select :end %>
+  <%= f.label :end_date  %>
+  <%= f.date_select :end_date %>
 
   <%= f.submit %>
 <% end %>

@@ -1,2 +1,14 @@
 class Task < ApplicationRecord
+  validates :name, presence: true
+  validates :status, inclusion: { in: %w[pending in_progress completed] }
+  validates :priority, inclusion: { in: %w[low medium high] }
+  validate :start_date_should_not_larger_than_end_date
+
+  private
+
+  def start_date_should_not_larger_than_end_date
+    return unless start_date && end_date && start_date > end_date
+
+    errors.add(:start_date, :bad_start_and_end_date)
+  end
 end

@@ -19,8 +19,8 @@ zh-TW:
       description: 內容
       status: 狀態
       priority: 優先度
-      start: 開始於
-      end: 結束於
+      start_date: 開始於
+      end_date: 結束於
       created_at: 創建時間
     form:
       priority:
