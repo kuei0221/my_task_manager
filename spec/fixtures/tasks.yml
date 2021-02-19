@@ -6,6 +6,7 @@ pending_task:
   end: 2022-02-17 21:55:58
   status: pending
   priority: low
+  created_at: 2020-02-15 21:55:58
 
 progressing_task:
   id: 2
@@ -15,6 +16,7 @@ progressing_task:
   end: 2022-02-17 21:55:58
   status: in progress
   priority: low
+  created_at: 2020-02-16 21:55:58
 
 completed_task:
   id: 3
@@ -24,3 +26,4 @@ completed_task:
   end: 2022-02-17 21:55:58
   status: completed
   priority: low
+  created_at: 2020-02-17 21:55:58

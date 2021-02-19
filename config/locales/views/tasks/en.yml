@@ -21,6 +21,7 @@ en:
       priority: Priority
       start: Start_At
       end: End At
+      created_at: Created At
     form:
       priority:
         low: Low

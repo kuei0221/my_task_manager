@@ -4,6 +4,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= link_to t('tasks.table.created_at'), tasks_path(created_sort: current_created_sort) %></th>
       <th><%= t 'tasks.table.name' %></th>
       <th><%= t 'tasks.table.description' %></th>
       <th><%= t 'tasks.table.status' %></th>
