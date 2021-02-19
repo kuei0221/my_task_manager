@@ -8,7 +8,7 @@ en:
       new_task: New Task
     edit:
       title: Edit Task
-      bacl: Back to Task
+      back: Back to Task
     show:
       edit: Edit
       delete: Delete

@@ -59,7 +59,7 @@ RSpec.describe 'Task Managemenet', type: :feature do
         expect(page).to have_content('testing create')
         expect(page).to have_content('This is testing the creation of a new test')
         expect(page).to have_content('high')
-        expect(page).to have_content('in progress')
+        expect(page).to have_content('in_progress')
         expect(page).to have_content('2020-06-20')
         expect(page).to have_content('2021-07-30')
       end
