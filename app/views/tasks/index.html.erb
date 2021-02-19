@@ -4,13 +4,13 @@
 <table>
   <thead>
     <tr>
-      <th><%= link_to t('tasks.table.created_at'), tasks_path(created_sort: current_created_sort) %></th>
+      <th><%= link_to t('tasks.table.created_at'), tasks_path(column: 'created_at', direction: switch_current_direction('created_at')) %></th>
       <th><%= t 'tasks.table.name' %></th>
       <th><%= t 'tasks.table.description' %></th>
       <th><%= t 'tasks.table.status' %></th>
       <th><%= t 'tasks.table.priority' %></th>
       <th><%= t 'tasks.table.start_date' %></th>
-      <th><%= t 'tasks.table.end_date' %></th>
+      <th><%= link_to t('tasks.table.end_date'), tasks_path(column: 'end_date', direction: switch_current_direction('end_date')) %></th>
     </tr>
   </thead>
   <tbody>
