@@ -49,6 +49,35 @@ RSpec.describe 'Task Managemenet', type: :feature do
         expect(page).to have_text(/test3.+test2.+test1/)
       end
     end
+
+    context 'when searching' do
+      it 'searh by name' do
+        fill_in 'Name', with: 'test1'
+        click_on 'Search'
+        expect(page).to have_text 'test1'
+        expect(page).not_to have_text 'test2'
+      end
+
+      it 'search by status' do
+        select 'Pending', from: 'Status'
+        click_on 'Search'
+        expect(page).to have_text 'pending'
+        expect(page).not_to have_text 'in_progress'
+        expect(page).not_to have_text 'completed'
+      end
+
+      it 'search by name and status' do
+        fill_in 'Name', with: 'test1'
+        select 'Pending', from: 'Status'
+        click_on 'Search'
+
+        expect(page).to have_text 'test1'
+        expect(page).not_to have_text 'test2'
+        expect(page).to have_text 'pending'
+        expect(page).not_to have_text 'in_progress'
+        expect(page).not_to have_text 'completed'
+      end
+    end
   end
 
   describe 'create task' do
