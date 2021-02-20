@@ -1,27 +1,43 @@
 <% if task.errors.any? %>
   <% task.errors.full_messages.each do |msg| %>
-    <%= msg %>
+    <div class='alert alert-danger'>
+      <%= msg %>
+    </div>
   <% end %>
 <% end %>
 
-<%= form_for(task) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class='row'>
+  <%= form_for(task, html: { class: 'col-5 ml-3 my-3' }) do |f| %>
+    <div class='form-group row'>
+      <%= f.label :name, class: 'col-sm-2  col-form-label' %>
+      <%= f.text_field :name, class: 'col-sm-10 form-control' %>
+    </div>
+    
+    <div class='form-group row'>
+      <%= f.label :description, class: 'col-sm-2  col-form-label' %>
+      <%= f.text_field :description, class: 'col-sm-10 form-control'%>
+    </div>
 
-  <%= f.label :description  %>
-  <%= f.text_field :description %>
+    <div class='form-group row'>
+      <%= f.label :priority, class: 'col-sm-2  col-form-label' %>
+      <%= f.select :priority, options_for_select([[t('tasks.form.priority.low'),'low'], [t('tasks.form.priority.medium'),'medium'],[t('tasks.form.priority.high'),'high']]), {}, { class: 'col-sm-10 form-control' } %>
+    </div>
 
-  <%= f.label :priority  %>
-  <%= f.select :priority, options_for_select([[t('tasks.form.priority.low'),'low'], [t('tasks.form.priority.medium'),'medium'],[t('tasks.form.priority.high'),'high']]) %>
+    <div class='form-group row'>
+      <%= f.label :status, class: 'col-sm-2  col-form-label' %>
+      <%= f.select :status, options_for_select([[t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]), {}, { class: 'col-sm-10 form-control' }  %>
+    </div>
 
-  <%= f.label :status  %>
-  <%= f.select :status, options_for_select([[t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]) %>
+    <div class='form-group row'>
+      <%= f.label :start_date, class: 'col-sm-2  col-form-label' %>
+      <%= f.date_select :start_date, class: 'col-sm-10 form-control' %>
+    </div>
 
-  <%= f.label :start_date  %>
-  <%= f.date_select :start_date %>
+    <div class='form-group row'>
+      <%= f.label :end_date, class: 'col-sm-2  col-form-label' %>
+      <%= f.date_select :end_date, class: 'col-sm-10 form-control' %>
+    </div>
 
-  <%= f.label :end_date  %>
-  <%= f.date_select :end_date %>
-
-  <%= f.submit %>
-<% end %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
+  <% end %>
+</div>
