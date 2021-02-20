@@ -28,24 +28,29 @@ RSpec.describe 'Task Managemenet', type: :feature do
       expect(page).to have_content(tasks(:completed_task).name)
     end
 
-    it 'sort tasks by created_at in desc' do
-      expect(page).to have_text(/test3.+test2.+test1/)
-    end
+    context 'when sorting' do
+      it 'sorts by created_at in desc by default' do
+        expect(page).to have_text(/test3.+test2.+test1/)
+      end
 
-    context 'when click Created At' do
-      it 'sorts all task by created_at' do
+      it 'sorts by created_at' do
         click_link 'Created At'
         expect(page).to have_text(/test1.+test2.+test3/)
         click_link 'Created At'
         expect(page).to have_text(/test3.+test2.+test1/)
       end
-    end
 
-    context 'when click End At' do
-      it 'sorts all task by end_date' do
+      it 'sorts by end_date' do
         click_link 'End At'
         expect(page).to have_text(/test1.+test2.+test3/)
         click_link 'End At'
+        expect(page).to have_text(/test3.+test2.+test1/)
+      end
+
+      it 'sorts by priority' do
+        click_link 'Priority'
+        expect(page).to have_text(/test1.+test2.+test3/)
+        click_link 'Priority'
         expect(page).to have_text(/test3.+test2.+test1/)
       end
     end

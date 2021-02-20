@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
+  enum priority: { low: 0, medium: 1, high: 2 }
   validates :name, presence: true
   validates :status, inclusion: { in: %w[pending in_progress completed] }
-  validates :priority, inclusion: { in: %w[low medium high] }
   validate :start_date_should_not_larger_than_end_date
 
   scope :search_by_name, ->(name) { where('name like ?', "%#{name}%") }

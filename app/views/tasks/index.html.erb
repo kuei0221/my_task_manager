@@ -17,7 +17,7 @@
       <th><%= t 'tasks.table.name' %></th>
       <th><%= t 'tasks.table.description' %></th>
       <th><%= t 'tasks.table.status' %></th>
-      <th><%= t 'tasks.table.priority' %></th>
+      <th><%= link_to t('tasks.table.priority'), tasks_path(column: 'priority', direction: switch_current_direction('priority')) %></th>
       <th><%= t 'tasks.table.start_date' %></th>
       <th><%= link_to t('tasks.table.end_date'), tasks_path(column: 'end_date', direction: switch_current_direction('end_date')) %></th>
     </tr>

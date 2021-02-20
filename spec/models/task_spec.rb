@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_inclusion_of(:status).in_array(%w[pending in_progress completed]) }
-  it { should validate_inclusion_of(:priority).in_array(%w[low medium high]) }
+  it { should define_enum_for(:priority).with_values(%w[low medium high]) }
 
   context 'when start date larger than end date' do
     let(:task) { tasks(:start_date_larger_than_end_date_task) }
@@ -31,7 +31,7 @@ RSpec.describe Task, type: :model do
     end
   end
 
-  describe "::search" do
+  describe '::search' do
     subject { described_class.search(name: name, status: status) }
 
     before do
