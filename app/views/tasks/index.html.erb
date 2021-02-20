@@ -1,6 +1,15 @@
 <h3><%= t '.title' %></h3>
 
 <%= link_to t('.new_task'), new_task_path %>
+
+<%= form_with url: tasks_path, method: :get do |f| %>
+  <%= f.label :name, t('.search.name')  %>
+  <%= f.text_field :name, placeholder: t('.search.name_placeholder') %>
+  <%= f.label :status, t('.search.status')  %>
+  <%= f.select :status, options_for_select([['',nil], [t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]) %>
+  <%= f.submit t('.search.submit'), name: nil %>
+<% end %>
+
 <table>
   <thead>
     <tr>
