@@ -15,7 +15,7 @@ progressing_task:
   start_date: 2020-02-17 21:55:58
   end_date: 2022-02-17 21:55:58
   status: in progress
-  priority: low
+  priority: medium
   created_at: 2020-02-16 21:55:58
 
 completed_task:
@@ -25,7 +25,7 @@ completed_task:
   start_date: 2020-02-17 21:55:58
   end_date: 2022-03-17 21:55:58
   status: completed
-  priority: low
+  priority: high
   created_at: 2020-02-17 21:55:58
 
 start_date_larger_than_end_date_task:
