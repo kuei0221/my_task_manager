@@ -5,8 +5,9 @@ class TasksController < ApplicationController
     params[:column] ||= :created_at
     params[:direction] ||= 'desc'
 
-    @tasks = Task.order(params[:column] => params[:direction])
-    @tasks.all
+    @tasks = Task.all
+    @tasks = @tasks.search(name: params[:name], status: params[:status])
+    @tasks = @tasks.order(params[:column] => params[:direction])
   end
 
   def new

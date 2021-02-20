@@ -4,6 +4,16 @@ class Task < ApplicationRecord
   validates :priority, inclusion: { in: %w[low medium high] }
   validate :start_date_should_not_larger_than_end_date
 
+  scope :search_by_name, ->(name) { where('name like ?', "%#{name}%") }
+  scope :search_by_status, ->(status) { where(status: status) }
+
+  def self.search(name: nil, status: nil)
+    tasks = self
+    tasks = tasks.search_by_name(name) if name.present?
+    tasks = tasks.search_by_status(status) if status.present?
+    tasks
+  end
+
   private
 
   def start_date_should_not_larger_than_end_date

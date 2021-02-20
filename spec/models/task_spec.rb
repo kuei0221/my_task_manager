@@ -12,4 +12,73 @@ RSpec.describe Task, type: :model do
       expect(task.errors.full_messages).to include 'Start date should not larger than end date'
     end
   end
+
+  describe '::search_by_name' do
+    subject { described_class.search_by_name(name) }
+    let(:name) { 'test' }
+
+    it 'should find all task with name' do
+      expect(subject.pluck(:name)).to all(include(name))
+    end
+  end
+
+  describe '::search_by_status' do
+    subject { described_class.search_by_status(status) }
+    let(:status) { 'pending' }
+
+    it 'should find all task with name' do
+      expect(subject.pluck(:status)).to all(include(status))
+    end
+  end
+
+  describe "::search" do
+    subject { described_class.search(name: name, status: status) }
+
+    before do
+      allow(Task).to receive(:search_by_name).and_return(Task)
+      allow(Task).to receive(:search_by_status).and_return(Task)
+    end
+
+    context 'when name present' do
+      let(:name) { 'test' }
+      let(:status) { '' }
+
+      it 'should call search_by_name' do
+        subject
+        expect(Task).to have_received(:search_by_name)
+      end
+    end
+
+    context 'when status present' do
+      let(:name) { '' }
+      let(:status) { 'pending' }
+
+      it 'should call search_by_name' do
+        subject
+        expect(Task).to have_received(:search_by_status)
+      end
+    end
+
+    context 'when name and status present' do
+      let(:name) { 'test' }
+      let(:status) { 'pending' }
+
+      it 'should call search_by_name' do
+        subject
+        expect(Task).to have_received(:search_by_name)
+        expect(Task).to have_received(:search_by_status)
+      end
+    end
+
+    context 'when name and status none present' do
+      let(:name) { '' }
+      let(:status) { '' }
+
+      it 'should call search_by_name' do
+        subject
+        expect(Task).not_to have_received(:search_by_name)
+        expect(Task).not_to have_received(:search_by_status)
+      end
+    end
+  end
 end

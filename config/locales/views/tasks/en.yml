@@ -6,6 +6,11 @@ en:
     index:
       title: My Task List
       new_task: New Task
+      search:
+        name: Name
+        name_placeholder: Search Name
+        status: Status
+        submit: Search
     edit:
       title: Edit Task
       back: Back to Task

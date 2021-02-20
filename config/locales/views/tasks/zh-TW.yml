@@ -6,6 +6,11 @@ zh-TW:
     index:
       title: 我的任務列表
       new_task: 建立新任務
+      search:
+        name: 名稱
+        name_placeholder: 搜尋名稱
+        status: 狀態
+        submit: 搜尋
     edit:
       title: 修改任務
       bacl: 返回任務
