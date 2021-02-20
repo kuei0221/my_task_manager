@@ -7,11 +7,19 @@ class Task < ApplicationRecord
   scope :search_by_name, ->(name) { where('name like ?', "%#{name}%") }
   scope :search_by_status, ->(status) { where(status: status) }
 
+  paginates_per 50
+
   def self.search(name: nil, status: nil)
     tasks = self
     tasks = tasks.search_by_name(name) if name.present?
     tasks = tasks.search_by_status(status) if status.present?
     tasks
+  end
+
+  def self.order_by(column:, direction:)
+    column ||= 'created_at'
+    direction ||= 'desc'
+    order(column => direction)
   end
 
   private
