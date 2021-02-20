@@ -10,6 +10,8 @@
   <%= f.submit t('.search.submit'), name: nil %>
 <% end %>
 
+<%= paginate @tasks %>
+
 <table>
   <thead>
     <tr>
@@ -26,3 +28,5 @@
     <%= render @tasks %>
   </tbody>
 </table>
+
+<%= paginate @tasks %>
