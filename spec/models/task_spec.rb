@@ -81,4 +81,30 @@ RSpec.describe Task, type: :model do
       end
     end
   end
+
+  describe '::order_by' do
+    subject { described_class.order_by(column: column, direction: direction) }
+
+    before { allow(Task).to receive(:order) }
+
+    context 'when column and direction not provide' do
+      let(:column) { nil }
+      let(:direction) { nil }
+
+      it 'orders by created_at with desc direction' do
+        subject
+        expect(Task).to have_received(:order).with('created_at' => 'desc')
+      end
+    end
+
+    context 'when column and direction provide' do
+      let(:column) { 'priority' }
+      let(:direction) { 'asc' }
+
+      it 'orders by given column and direction' do
+        subject
+        expect(Task).to have_received(:order).with(column => direction)
+      end
+    end
+  end
 end
