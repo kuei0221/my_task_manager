@@ -2,12 +2,9 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
 
   def index
-    params[:column] ||= :created_at
-    params[:direction] ||= 'desc'
-
-    @tasks = Task.all
-    @tasks = @tasks.search(name: params[:name], status: params[:status])
-    @tasks = @tasks.order(params[:column] => params[:direction])
+    @tasks = Task.search(name: params[:name], status: params[:status])
+                 .order_by(column: params[:column], direction: params[:direction])
+                 .page(params[:page])
   end
 
   def new
