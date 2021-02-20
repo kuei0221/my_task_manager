@@ -1,5 +1,5 @@
 <% flash.each do |type, msg| %>
-  <div>
+  <%= content_tag(:div, class: flash_style(type)) do %>
     <%= msg %>
-  </div>
+  <% end %>
 <% end %>
