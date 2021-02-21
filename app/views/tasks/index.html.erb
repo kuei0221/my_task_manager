@@ -1,27 +1,34 @@
 <h3><%= t '.title' %></h3>
 
-<%= link_to t('.new_task'), new_task_path %>
 
-<%= form_with url: tasks_path, method: :get do |f| %>
-  <%= f.label :name, t('.search.name')  %>
-  <%= f.text_field :name, placeholder: t('.search.name_placeholder') %>
-  <%= f.label :status, t('.search.status')  %>
-  <%= f.select :status, options_for_select([['',nil], [t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]) %>
-  <%= f.submit t('.search.submit'), name: nil %>
-<% end %>
+<div class='row my-3'>
+  <div class='col-1'>
+    <%= link_to t('.new_task'), new_task_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class='col'>
+    <%= form_with url: tasks_path, method: :get, class: 'form-inline' do |f| %>
+      <%= f.label :name, t('.search.name') %>
+      <%= f.text_field :name, placeholder: t('.search.name_placeholder'), class: 'form-control mx-3' %>
+      <%= f.label :status, t('.search.status')  %>
+      <%= f.select :status, options_for_select([['',nil], [t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]), {}, { class: 'form-control mx-3' } %>
+      <%= f.submit t('.search.submit'), name: nil, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
 
 <%= paginate @tasks %>
 
-<table>
+<table class='table'>
   <thead>
     <tr>
-      <th><%= link_to t('tasks.table.created_at'), tasks_path(column: 'created_at', direction: switch_current_direction('created_at')) %></th>
+      <th><%= link_to t('tasks.table.created_at'), tasks_path(column: 'created_at', direction: switch_current_direction('created_at')), class: 'btn btn-sm btn-secondary' %></th>
       <th><%= t 'tasks.table.name' %></th>
       <th><%= t 'tasks.table.description' %></th>
       <th><%= t 'tasks.table.status' %></th>
-      <th><%= link_to t('tasks.table.priority'), tasks_path(column: 'priority', direction: switch_current_direction('priority')) %></th>
+      <th><%= link_to t('tasks.table.priority'), tasks_path(column: 'priority', direction: switch_current_direction('priority')), class: 'btn btn-sm btn-secondary' %></th>
       <th><%= t 'tasks.table.start_date' %></th>
-      <th><%= link_to t('tasks.table.end_date'), tasks_path(column: 'end_date', direction: switch_current_direction('end_date')) %></th>
+      <th><%= link_to t('tasks.table.end_date'), tasks_path(column: 'end_date', direction: switch_current_direction('end_date')), class: 'btn btn-sm btn-secondary' %></th>
     </tr>
   </thead>
   <tbody>
