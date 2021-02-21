@@ -1,0 +1,15 @@
+<div class='row'>
+  <%= form_with(url: login_path, html: { class: 'col-5 ml-3 my-3' }) do |f| %>
+    <div class='form-group row'>
+      <%= f.label :name, t('.name'), class: 'col-sm-2  col-form-label' %>
+      <%= f.text_field :name, class: 'col-sm-10 form-control' %>
+    </div>
+    
+    <div class='form-group row'>
+      <%= f.label :password, t('.password'), class: 'col-sm-2  col-form-label' %>
+      <%= f.password_field :password, class: 'col-sm-10 form-control'%>
+    </div>
+
+    <%= f.submit t('.login'), class: 'btn btn-primary' %>
+  <% end %>
+</div>
