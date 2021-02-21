@@ -1,0 +1,6 @@
+zh-TW:
+  sessions:
+    new:
+      name: 使用者名聲
+      password: 密碼
+      login: 登入
