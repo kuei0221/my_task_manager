@@ -78,6 +78,7 @@ RSpec.describe Task, type: :model do
         subject
         expect(Task).not_to have_received(:search_by_name)
         expect(Task).not_to have_received(:search_by_status)
+        expect(subject).to be_a(ActiveRecord::Relation)
       end
     end
   end

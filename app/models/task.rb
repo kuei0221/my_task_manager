@@ -12,7 +12,7 @@ class Task < ApplicationRecord
   paginates_per 50
 
   def self.search(name: nil, status: nil)
-    tasks = self
+    tasks = all
     tasks = tasks.search_by_name(name) if name.present?
     tasks = tasks.search_by_status(status) if status.present?
     tasks
