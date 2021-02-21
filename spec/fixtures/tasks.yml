@@ -39,3 +39,7 @@ start_date_larger_than_end_date_task:
   end_date: 2020-02-17 21:55:58
   status: pending
   priority: low
+
+other_user_task:
+  user_id: 2
+  name: other user task

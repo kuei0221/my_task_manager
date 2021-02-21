@@ -1,3 +1,9 @@
 michael:
   id: 1
   name: michael
+  password_digest: <%= BCrypt::Password.create('password') %>
+
+guest:
+  id: 2
+  name: guest
+  password_digest: <%= BCrypt::Password.create('password') %>
