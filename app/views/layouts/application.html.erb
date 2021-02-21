@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <nav class='navbar justify-content-end'>
+      <%= link_to 'Logout', logout_path, method: :delete, class: 'btn btn-danger' if current_user %>
+    </nav>
     <%= render 'layouts/flash' %>
     <%= yield %>
   </body>

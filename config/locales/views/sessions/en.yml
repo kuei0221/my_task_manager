@@ -1,0 +1,6 @@
+en:
+  sessions:
+    new:
+      name: Name
+      password: Password
+      login: Login

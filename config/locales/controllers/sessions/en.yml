@@ -1,0 +1,8 @@
+en:
+  sessions:
+    create:
+      login_success: Login Success
+      password_mismatch: Password Mismatch
+      user_not_find: User Name Not Exist
+    destroy:
+      success: Logout Success

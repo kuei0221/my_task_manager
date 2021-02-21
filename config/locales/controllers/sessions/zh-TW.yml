@@ -1,0 +1,9 @@
+zh-TW:
+  sessions:
+    create:
+      login_success: 成功登入
+      password_mismatch: 密碼錯誤
+      user_not_find: 並沒有此使用者名稱
+    destroy:
+      success: Logout Success
+

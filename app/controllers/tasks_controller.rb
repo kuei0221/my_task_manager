@@ -1,8 +1,10 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user
   before_action :find_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.search(name: params[:name], status: params[:status])
+    @tasks = Task.where(user_id: current_user.id)
+                 .search(name: params[:name], status: params[:status])
                  .order_by(column: params[:column], direction: params[:direction])
                  .page(params[:page])
   end
@@ -12,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = User.first.tasks.new(task_params)
+    @task = Task.new(task_params.merge(user_id: current_user.id))
     if @task.save
       redirect_to task_path(@task), notice: t('.success')
     else
@@ -42,7 +44,7 @@ class TasksController < ApplicationController
   private
 
   def find_task
-    @task = Task.find(params[:id])
+    @task = Task.find_by(id: params[:id], user_id: current_user.id)
   end
 
   def task_params
