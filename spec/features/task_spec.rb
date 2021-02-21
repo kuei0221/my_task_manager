@@ -37,7 +37,7 @@ RSpec.describe 'Task Managemenet', type: :feature do
       end
 
       it 'does not show tasks of other user' do
-        expect(page).not_to have_context('other user task')
+        expect(page).not_to have_content('other user task')
       end
 
       context 'when sorting' do
