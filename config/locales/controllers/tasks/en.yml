@@ -8,3 +8,4 @@ en:
       fail: 'Task Update Fail'
     destroy: 
       success: 'Task Delete Success'
+      fail: 'Task Delete Fail'

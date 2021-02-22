@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   enum priority: { low: 0, medium: 1, high: 2 }
   validates :name, presence: true

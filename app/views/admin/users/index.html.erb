@@ -1,0 +1,24 @@
+<h3><%= t('.title') %></h3>
+
+<div class='row my-3'>
+  <div class='col-2'>
+    <%= link_to t('.new_user'), new_admin_user_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<%= paginate @users %>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th><%= t('.table.name') %></th>
+      <th><%= t('.table.task_count') %></th>
+      <th><%= t('.table.action') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+
+<%= paginate @users %>
