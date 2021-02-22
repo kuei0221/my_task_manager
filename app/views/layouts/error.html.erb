@@ -1,0 +1,18 @@
+<div class='card border-danger p-3 m-3'>
+  <div class='card-body'>
+    <h3 class='card-title text-danger'>Status code: <%= @error[:status] %></h3>
+    <h3 class='card-title text-danger'><%= @error.dig(:exception) %></h3>
+    <h3 class='card-title text-danger'><%= @error.dig(:message) %></h3>
+    <h5 class='card-subtitle text-muted my-2'>Error Detail</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">request: <%= @error[:request] %></li>
+      <li class="list-group-item">params: <%= @error[:params] %></li>
+
+      <% if backtrace = @error.dig(:backtrace) %>
+        <% backtrace.each do |trace| %>
+          <li class="list-group-item"><%= trace %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

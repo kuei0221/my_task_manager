@@ -12,6 +12,7 @@
 
   <body>
     <nav class='navbar justify-content-end'>
+      <%= link_to 'My Task', tasks_path, class: 'btn btn-primary' %>
       <%= link_to 'Admin', admin_users_path, class: 'btn btn-primary' if current_user&.admin? %>
       <%= link_to 'Logout', logout_path, method: :delete, class: 'btn btn-danger mx-3' if current_user %>
     </nav>
