@@ -2,8 +2,22 @@ michael:
   id: 1
   name: michael
   password_digest: <%= BCrypt::Password.create('password') %>
+  admin: false
 
 guest:
   id: 2
   name: guest
   password_digest: <%= BCrypt::Password.create('password') %>
+  admin: false
+
+admin:
+  id: 3
+  name: admin
+  password_digest: <%= BCrypt::Password.create('password') %>
+  admin: true
+
+admin2:
+  id: 4
+  name: admin2
+  password_digest: <%= BCrypt::Password.create('password') %>
+  admin: true
