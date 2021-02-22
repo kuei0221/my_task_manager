@@ -3,16 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Task Managemenet', type: :feature do
-
-  def login
-    visit login_path
-    fill_in 'Name', with: 'michael'
-    fill_in 'Password', with: 'password'
-    click_on 'Login'
-  end
-
   context 'when login' do
     before { login }
+
     context 'show specific task' do
       let(:task) { tasks(:pending_task) }
 

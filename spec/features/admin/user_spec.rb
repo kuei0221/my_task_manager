@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin#User' do
+RSpec.describe 'Admin#User', type: :feature do
+  before { admin_login }
+
   describe 'Create New User' do
     it do
       visit new_admin_user_path

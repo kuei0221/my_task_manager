@@ -14,7 +14,7 @@
     <nav class='navbar justify-content-end'>
       <%= link_to 'Normal User', tasks_path, class: 'btn btn-primary' %>
 
-      <div class="dropdown show mx-3">
+      <div class="dropdown show">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Resources
         </a>
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <%= link_to 'Logout', logout_path, method: :delete, class: 'btn btn-danger' if current_user %>
+      <%= link_to 'Logout', logout_path, method: :delete, class: 'btn btn-danger mx-3' if current_user %>
     </nav>
     <%= render 'layouts/flash' %>
     <%= yield %>
