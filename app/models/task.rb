@@ -10,13 +10,15 @@ class Task < ApplicationRecord
 
   scope :search_by_name, ->(name) { where('name like ?', "%#{name}%") }
   scope :search_by_status, ->(status) { where(status: status) }
+  scope :search_by_label, ->(label) { where('labels.id': label) }
 
   paginates_per 50
 
-  def self.search(name: nil, status: nil)
+  def self.search(name: nil, status: nil, label: nil)
     tasks = all
     tasks = tasks.search_by_name(name) if name.present?
     tasks = tasks.search_by_status(status) if status.present?
+    tasks = tasks.search_by_label(label) if label.present?
     tasks
   end
 

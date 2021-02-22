@@ -3,8 +3,9 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.where(user_id: current_user.id)
-                 .search(name: params[:name], status: params[:status])
+    @tasks = Task.includes(:labels)
+                 .where(user: current_user)
+                 .search(name: params[:name], status: params[:status], label: params[:label])
                  .order_by(column: params[:column], direction: params[:direction])
                  .page(params[:page])
   end
