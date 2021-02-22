@@ -1,0 +1,8 @@
+zh-TW:
+  task_labels:
+    create:
+      success: 貼上標籤成功
+      fail: 貼上標籤失敗
+    destroy:
+      success: 移除標籤成功
+      fail: 移除標籤失敗

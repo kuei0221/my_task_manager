@@ -1,0 +1,13 @@
+en:
+  task_labels:
+    new:
+      title: Attach New Label
+      name: Name
+      label: Label
+      attach_new_label: Create And Attach Label
+      attach_exist_label: Attach Selected Label
+    task_label:
+      delete: Remove Label
+    task_label_table:
+      name: Name
+      action: Action

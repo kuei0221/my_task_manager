@@ -4,6 +4,11 @@
   <td><%= task.description %></td>
   <td><%= task.status %></td>
   <td><%= task.priority %></td>
+  <td>
+    <% task.labels.each do |label| %>
+      <p class='btn btn-sm btn-info disabled'><%= label.name %></p>
+    <%end %>
+  </td>
   <td><%= task.start_date %></td>
   <td><%= task.end_date %></td>
 </tr>

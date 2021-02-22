@@ -1,0 +1,8 @@
+en:
+  task_labels:
+    create:
+      success: Attach Label Success
+      fail: Attach Label Fail
+    destroy:
+      success: Detach Label Success
+      fail: Detach Label Fail

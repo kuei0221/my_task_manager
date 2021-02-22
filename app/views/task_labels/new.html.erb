@@ -1,0 +1,26 @@
+<h3><%= t('.title') %></h3>
+
+<div class='row'>
+  <%= form_for(@label, url: task_labels_path, html: { class: 'col-5 ml-3 my-3' }) do |f| %>
+    <div class='form-group row'>
+      <%= f.label :name, t('.name'), class: 'col-sm-2  col-form-label' %>
+      <%= f.text_field :name, class: 'col-sm-10 form-control' %>
+    </div>    
+
+    <%= f.submit t('.attach_new_label'), name: nil, class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<div class='row'>
+  <%= form_with(url: task_labels_path, scope: 'label', html: { class: 'col-5 ml-3 my-3' }) do |f| %>
+
+    <div class='form-group row'>
+      <%= f.label :name, t('.label'), class: 'col-sm-2  col-form-label' %>
+      <%= f.collection_select :name, @available_labels, :name, :name, {}, { class: 'col-sm-10 form-control' } %>
+    </div>
+
+    <%= f.submit t('.attach_exist_label'), name: nil, class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<%= link_to 'Back', task_path(params[:id]), class: 'btn btn-sm btn-info mx-3' %>

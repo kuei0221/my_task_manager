@@ -35,28 +35,28 @@ RSpec.describe 'Task Managemenet', type: :feature do
 
       context 'when sorting' do
         it 'sorts by created_at in desc by default' do
-          expect(page).to have_text(/test3.+test2.+test1/)
+          expect(page).to have_text(/test3.+test2.+test1/m)
         end
 
         it 'sorts by created_at' do
           click_link 'Created At'
-          expect(page).to have_text(/test1.+test2.+test3/)
+          expect(page).to have_text(/.+test1.+test2.+test3/m)
           click_link 'Created At'
-          expect(page).to have_text(/test3.+test2.+test1/)
+          expect(page).to have_text(/test3.+test2.+test1/m)
         end
 
         it 'sorts by end_date' do
           click_link 'End At'
-          expect(page).to have_text(/test1.+test2.+test3/)
+          expect(page).to have_text(/test1.+test2.+test3/m)
           click_link 'End At'
-          expect(page).to have_text(/test3.+test2.+test1/)
+          expect(page).to have_text(/test3.+test2.+test1/m)
         end
 
         it 'sorts by priority' do
           click_link 'Priority'
-          expect(page).to have_text(/test1.+test2.+test3/)
+          expect(page).to have_text(/test1.+test2.+test3/m)
           click_link 'Priority'
-          expect(page).to have_text(/test3.+test2.+test1/)
+          expect(page).to have_text(/test3.+test2.+test1/m)
         end
       end
 
@@ -74,6 +74,16 @@ RSpec.describe 'Task Managemenet', type: :feature do
           expect(page).to have_text 'pending'
           expect(page).not_to have_text 'in_progress'
           expect(page).not_to have_text 'completed'
+        end
+
+        it 'search by label' do
+          select 'test_label', from: 'Label'
+          click_on 'Search'
+          within '#task-table' do
+            expect(page).to have_text 'test_label'
+            expect(page).not_to have_text 'unused_label'
+            expect(page).not_to have_text 'other_user_label'
+          end
         end
 
         it 'search by name and status' do
