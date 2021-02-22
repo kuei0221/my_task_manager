@@ -37,8 +37,12 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    redirect_to tasks_path, notice: t('.success')
+    if @task.destroy
+      redirect_to tasks_path, notice: t('.success')
+    else
+      flash.now[:alert] = t('.fail')
+      render :show
+    end
   end
 
   private
