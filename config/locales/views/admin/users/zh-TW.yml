@@ -13,6 +13,7 @@ zh-TW:
         back: 返回列表
       table:
         name: 使用者名稱
+        admin: 管理者權限
         task_count: 任務總數
         action: 行動
       user:
