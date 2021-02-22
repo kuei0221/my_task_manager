@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user, counter_cache: true
+  has_many :task_labels, dependent: :destroy
+  has_many :labels, through: :task_labels
 
   enum priority: { low: 0, medium: 1, high: 2 }
   validates :name, presence: true
