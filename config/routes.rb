@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     resources :users, except: :show
     resources :tasks, only: :index
   end
+
+  get '404', to: 'application#not_found'
+  get '500', to: 'application#internal_error'
 end
