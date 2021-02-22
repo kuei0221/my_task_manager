@@ -1,0 +1,11 @@
+en:
+  users:
+    create:
+      success: User Create Success
+      fail: User Create Fail
+    edit:
+      success: User Update Success
+      fail: User Update Fail
+    destroy:
+      success: User Delete Success
+      fail: User Delete Fail

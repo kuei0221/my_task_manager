@@ -1,0 +1,11 @@
+zh-TW:
+  users:
+    create:
+      success: 使用者建立成功
+      fail: 使用者建立失敗
+    edit:
+      success: 使用者更新成功
+      fail: 使用者更新失敗
+    destroy:
+      success: 使用者刪除成功
+      fail: 使用者刪除失敗

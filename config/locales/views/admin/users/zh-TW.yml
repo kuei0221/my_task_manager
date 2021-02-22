@@ -1,0 +1,20 @@
+zh-TW:
+  admin:
+    users:
+      index:
+        title: 使用者列表
+        new_user: 建立新的使用者
+        edit: 修改
+      new:
+        title: 建立使用者
+        back: 返回列表
+      edit:
+        title: 修改使用者
+        back: 返回列表
+      table:
+        name: 使用者名稱
+        task_count: 任務總數
+        action: 行動
+      user:
+        delete: 刪除
+        delete_confirm: 你確定要刪除此使用者？

@@ -1,0 +1,20 @@
+en:
+  admin:
+    users:
+      index:
+        title: User List
+        new_user: Create New User
+        edit: 'Edit'
+      new:
+        title: Create New User
+        back: Back to List
+      edit:
+        title: Edit User
+        back: Back to List 
+      table:
+        name: Name
+        task_count: Task Count
+        action: Action
+      user:
+        delete: Delete
+        delete_confirm: Do you really want to delete this user?

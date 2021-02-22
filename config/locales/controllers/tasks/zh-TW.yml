@@ -8,3 +8,4 @@ zh-TW:
       fail: 任務更新失敗
     destroy: 
       success: 任務刪除成功
+      fail: 任務刪除失敗
