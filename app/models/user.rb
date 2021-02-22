@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
 
   before_destroy :last_admin_user?, if: :admin?
+  before_update :last_admin_user?, if: %i[admin_was admin_changed?]
 
   private
 
