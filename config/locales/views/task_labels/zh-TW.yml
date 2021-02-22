@@ -1,0 +1,14 @@
+zh-TW:
+  task_labels:
+    new:
+      title: 加入新的標籤
+      name: 標籤名稱
+      label: 標籤
+      attach_new_label: 建立並標記標籤
+      attach_exist_label: 標記選擇的標籤
+    task_label:
+      delete: 移除標籤
+    task_label_table:
+      name: 標籤名稱
+      action: 動作
+

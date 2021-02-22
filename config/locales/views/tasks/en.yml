@@ -15,6 +15,7 @@ en:
       title: Edit Task
       back: Back to Task
     show:
+      new_label: Add Label
       edit: Edit
       delete: Delete
       delete_confirm: 'Do you really want to delete this task ?'
@@ -24,6 +25,7 @@ en:
       description: Description
       status: Status
       priority: Priority
+      label: Label
       start_date: Start_At
       end_date: End At
       created_at: Created At

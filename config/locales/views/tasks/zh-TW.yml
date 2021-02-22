@@ -15,6 +15,7 @@ zh-TW:
       title: 修改任務
       bacl: 返回任務
     show:
+      new_label: 加標籤
       edit: 修改任務
       delete: 刪除任務
       delete_confirm: 確定要刪除任務？
@@ -24,6 +25,7 @@ zh-TW:
       description: 內容
       status: 狀態
       priority: 優先度
+      label: 標籤
       start_date: 開始於
       end_date: 結束於
       created_at: 創建時間
