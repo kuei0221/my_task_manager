@@ -13,6 +13,7 @@ en:
         back: Back to List 
       table:
         name: Name
+        admin: Admin
         task_count: Task Count
         action: Action
       user:
