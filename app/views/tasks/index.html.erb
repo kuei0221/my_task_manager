@@ -11,7 +11,10 @@
       <%= f.label :name, t('.search.name') %>
       <%= f.text_field :name, placeholder: t('.search.name_placeholder'), class: 'form-control mx-3' %>
       <%= f.label :status, t('.search.status')  %>
-      <%= f.select :status, options_for_select([['',nil], [t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]), {}, { class: 'form-control mx-3' } %>
+      <%= f.select :status, options_for_select([[t('tasks.form.status.pending'),'pending'], [t('tasks.form.status.in_progress'),'in_progress'], [t('tasks.form.status.completed'),'completed']]), { include_blank: true }, { class: 'form-control mx-3' } %>
+      <%= f.label :label, t('.search.label')  %>
+      <%= f.collection_select :label, current_user.labels, :id, :name, { include_blank: true }, { class: 'form-control mx-3' } %>
+
       <%= f.submit t('.search.submit'), name: nil, class: 'btn btn-primary' %>
     <% end %>
   </div>
@@ -19,7 +22,7 @@
 
 <%= paginate @tasks %>
 
-<table class='table'>
+<table class='table' id='task-table'>
   <thead>
     <tr>
       <th><%= link_to t('tasks.table.created_at'), tasks_path(column: 'created_at', direction: switch_current_direction('created_at')), class: 'btn btn-sm btn-secondary' %></th>
@@ -27,6 +30,7 @@
       <th><%= t 'tasks.table.description' %></th>
       <th><%= t 'tasks.table.status' %></th>
       <th><%= link_to t('tasks.table.priority'), tasks_path(column: 'priority', direction: switch_current_direction('priority')), class: 'btn btn-sm btn-secondary' %></th>
+      <th><%= t 'tasks.table.label' %></th>
       <th><%= t 'tasks.table.start_date' %></th>
       <th><%= link_to t('tasks.table.end_date'), tasks_path(column: 'end_date', direction: switch_current_direction('end_date')), class: 'btn btn-sm btn-secondary' %></th>
     </tr>

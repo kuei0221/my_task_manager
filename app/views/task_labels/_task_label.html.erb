@@ -1,0 +1,4 @@
+<tr>
+  <td><%= label.name %></td>
+  <td><%= link_to t('.delete'), task_label_path(params[:id], label_id: label.id), method: :delete %></td>
+</tr>

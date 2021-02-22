@@ -1,0 +1,11 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th><%= t('.name') %></th>
+      <th><%= t('.action') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: '/task_labels/task_label', collection: @task.labels, as: :label  %>    
+  </tbody>
+</table>
